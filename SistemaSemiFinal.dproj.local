@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2025/08/06 15:38:24.656,=C:\Users\leo mendes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/08/06 15:39:33.813,C:\Projetos\SistemaSemiFinal\uMain.pas=C:\Users\leo mendes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/08/06 15:39:33.813,C:\Projetos\SistemaSemiFinal\uMain.dfm=C:\Users\leo mendes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025/08/06 15:39:41.195,C:\Projetos\SistemaSemiFinal\SistemaSemiFinal.dproj=C:\Users\leo mendes\OneDrive\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2025/08/06 15:39:46.929,=C:\Projetos\SistemaSemiFinal\Unit2.pas</Transaction>
+    <Transaction>2025/08/06 15:39:52.530,C:\Projetos\SistemaSemiFinal\uEstudantes.pas=C:\Projetos\SistemaSemiFinal\Unit2.pas</Transaction>
+    <Transaction>2025/08/06 15:39:52.530,C:\Projetos\SistemaSemiFinal\uEstudantes.dfm=C:\Projetos\SistemaSemiFinal\Unit2.dfm</Transaction>
+    <Transaction>2025/08/06 15:39:55.930,=C:\Projetos\SistemaSemiFinal\Unit3.pas</Transaction>
+    <Transaction>2025/08/06 15:40:01.226,C:\Projetos\SistemaSemiFinal\uProfessores.pas=C:\Projetos\SistemaSemiFinal\Unit3.pas</Transaction>
+    <Transaction>2025/08/06 15:40:01.226,C:\Projetos\SistemaSemiFinal\uProfessores.dfm=C:\Projetos\SistemaSemiFinal\Unit3.dfm</Transaction>
+    <Transaction>2025/08/06 15:40:04.488,=C:\Projetos\SistemaSemiFinal\Unit4.pas</Transaction>
+    <Transaction>2025/08/06 15:40:12.867,C:\Projetos\SistemaSemiFinal\uDisciplinas.pas=C:\Projetos\SistemaSemiFinal\Unit4.pas</Transaction>
+    <Transaction>2025/08/06 15:40:12.867,C:\Projetos\SistemaSemiFinal\uDisciplinas.dfm=C:\Projetos\SistemaSemiFinal\Unit4.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
