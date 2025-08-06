@@ -1,0 +1,43 @@
+unit uClasseAlunos;
+
+interface
+  uses System.SysUtils, uMain;
+
+type
+  TFormAlunos = class
+ protected
+  nome:string;
+  codigo:integer;
+
+ public
+  function getNome:string;
+  procedure setNome (aNome:string);
+  function getCodigo:integer;
+  procedure setCodigo(aCodigo:string);
+  end;
+
+implementation
+
+{ TFormAlunos }
+
+function TFormAlunos.getCodigo: integer;
+begin
+ result:=self.codigo;
+end;
+
+function TFormAlunos.getNome: string;
+begin
+ result:= self.nome;
+end;
+
+procedure TFormAlunos.setCodigo(aCodigo: string);
+begin
+  self.nome:=aCodigo;
+end;
+
+procedure TFormAlunos.setNome(aNome: string);
+begin
+  self.nome:=aNome;
+end;
+
+end.

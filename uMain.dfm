@@ -1,25 +1,28 @@
-object Form1: TForm1
+object FormAlunos: TFormAlunos
   Left = 0
   Top = 0
-  Caption = 'Form1'
-  ClientHeight = 441
-  ClientWidth = 624
+  Caption = 'FormAlunos'
+  ClientHeight = 436
+  ClientWidth = 665
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poDesigned
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 624
-    Height = 441
+    Width = 665
+    Height = 436
     Align = alClient
     Color = clDarkolivegreen
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 624
+    ExplicitHeight = 441
     object Label1: TLabel
       Left = 51
       Top = 187
@@ -36,7 +39,7 @@ object Form1: TForm1
     object Label2: TLabel
       Left = 1
       Top = 1
-      Width = 622
+      Width = 663
       Height = 37
       Align = alTop
       Alignment = taCenter
@@ -47,7 +50,7 @@ object Form1: TForm1
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitWidth = 261
+      ExplicitTop = 24
     end
     object Button1: TButton
       Left = 51
@@ -67,7 +70,7 @@ object Form1: TForm1
       AlignWithMargins = True
       Left = 51
       Top = 38
-      Width = 522
+      Width = 563
       Height = 73
       Margins.Left = 50
       Margins.Top = 0
@@ -82,6 +85,7 @@ object Form1: TForm1
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      ExplicitTop = 61
     end
     object Button2: TButton
       Left = 420

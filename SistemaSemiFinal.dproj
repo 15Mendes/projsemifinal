@@ -124,7 +124,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="uMain.pas">
-            <Form>Form1</Form>
+            <Form>FormAlunos</Form>
         </DCCReference>
         <DCCReference Include="uEstudantes.pas">
             <Form>Form2</Form>
@@ -135,6 +135,7 @@
         <DCCReference Include="uDisciplinas.pas">
             <Form>Form4</Form>
         </DCCReference>
+        <DCCReference Include="uClasseAlunos.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
