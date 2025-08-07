@@ -29,7 +29,7 @@ object Form2: TForm2
       Font.Color = clWindowText
       Font.Height = -24
       Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Style = [fsUnderline]
       ParentFont = False
     end
     object Panel2: TPanel
@@ -53,6 +53,7 @@ object Form2: TForm2
       Height = 25
       Caption = 'Salvar'
       TabOrder = 1
+      OnClick = Button1Click
     end
     object Edit1: TEdit
       Left = 56

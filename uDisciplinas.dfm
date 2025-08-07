@@ -95,8 +95,9 @@ object Form4: TForm4
       Height = 25
       Caption = 'Salvar'
       TabOrder = 4
+      OnClick = Button4Click
     end
-    object ComboBox1: TComboBox
+    object cbDisciplinas: TComboBox
       Left = 72
       Top = 216
       Width = 297
@@ -108,7 +109,13 @@ object Form4: TForm4
       Font.Style = []
       ParentFont = False
       TabOrder = 5
-      Text = 'Delphi 12'
+      TextHint = 'Escolha uma op'#231#227'o'
+      OnChange = cbDisciplinasChange
+      OnClick = ConfirmarClique
+      Items.Strings = (
+        'DELPHI 12'
+        'HTML'
+        'JAVA SCRIPT')
     end
   end
 end

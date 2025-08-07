@@ -13,15 +13,20 @@ type
     Label2: TLabel;
     Button1: TButton;
     Panel2: TPanel;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
+    bListar: TButton;
+    BEditar: TButton;
+    BExcluir: TButton;
     Edit1: TEdit;
     Edit2: TEdit;
+    ListBox1: TListBox;
+    procedure Button1Click(Sender: TObject);
+
+   
+
   private
     { Private declarations }
   public
-    { Public declarations }
+    procedure SalvarListBox(aNomeCodigo:string);
   end;
 
 var
@@ -30,5 +35,19 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFormAlunos.Button1Click(Sender: TObject);
+begin
+ ShowMessage('Salvo com sucesso!');
+// Self.SalvarListBox;
+end;
+
+
+procedure TFormAlunos.SalvarListBox(aNomeCodigo: string);
+ var anome:string;
+     acodigo:integer;
+  begin
+    ListBox1.Items.Add(anome +'---'+acodigo.ToString);
+  end;
 
 end.

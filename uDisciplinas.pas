@@ -15,7 +15,8 @@ type
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
-    ComboBox1: TComboBox;
+    cbDisciplinas: TComboBox;
+    procedure Button4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,5 +29,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm4.Button4Click(Sender: TObject);
+begin
+  ShowMessage('Salvo com sucesso!');
+end;
 
 end.

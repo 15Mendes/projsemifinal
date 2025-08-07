@@ -18,6 +18,7 @@ type
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,5 +31,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm2.Button1Click(Sender: TObject);
+begin
+   ShowMessage('Salvo com sucesso!');
+end;
 
 end.

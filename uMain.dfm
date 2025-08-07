@@ -21,8 +21,6 @@ object FormAlunos: TFormAlunos
     Color = clDarkolivegreen
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 624
-    ExplicitHeight = 441
     object Label1: TLabel
       Left = 51
       Top = 187
@@ -33,7 +31,7 @@ object FormAlunos: TFormAlunos
       Font.Color = clWindowText
       Font.Height = -24
       Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Style = [fsUnderline]
       ParentFont = False
     end
     object Label2: TLabel
@@ -50,7 +48,7 @@ object FormAlunos: TFormAlunos
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitTop = 24
+      ExplicitWidth = 261
     end
     object Button1: TButton
       Left = 51
@@ -65,6 +63,7 @@ object FormAlunos: TFormAlunos
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnClick = Button1Click
     end
     object Panel2: TPanel
       AlignWithMargins = True
@@ -78,18 +77,20 @@ object FormAlunos: TFormAlunos
       Margins.Bottom = 50
       Align = alTop
       Caption = 'Inclus'#227'o de Alunos'
+      Color = clGray
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -27
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitTop = 61
+      ExplicitTop = 78
     end
-    object Button2: TButton
+    object bListar: TButton
       Left = 420
-      Top = 189
+      Top = 185
       Width = 153
       Height = 44
       Caption = 'Listar Alunos'
@@ -101,12 +102,12 @@ object FormAlunos: TFormAlunos
       ParentFont = False
       TabOrder = 2
     end
-    object Button3: TButton
+    object BEditar: TButton
       Left = 420
       Top = 247
       Width = 153
       Height = 42
-      Caption = 'Atualizar'
+      Caption = 'Editar'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
@@ -115,7 +116,7 @@ object FormAlunos: TFormAlunos
       ParentFont = False
       TabOrder = 3
     end
-    object Button4: TButton
+    object BExcluir: TButton
       Left = 420
       Top = 304
       Width = 153
@@ -156,6 +157,14 @@ object FormAlunos: TFormAlunos
       ParentFont = False
       TabOrder = 6
       TextHint = 'Insira o c'#243'digo'
+    end
+    object ListBox1: TListBox
+      Left = 240
+      Top = 336
+      Width = 121
+      Height = 97
+      ItemHeight = 15
+      TabOrder = 7
     end
   end
 end

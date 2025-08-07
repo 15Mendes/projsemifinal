@@ -136,6 +136,8 @@
             <Form>Form4</Form>
         </DCCReference>
         <DCCReference Include="uClasseAlunos.pas"/>
+        <DCCReference Include="uClasseProfessores.pas"/>
+        <DCCReference Include="uClasseDisciplinas.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -58,7 +58,11 @@ object Form3: TForm3
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      Text = 'Aprendiz_01'
+      TextHint = 'Escolha uma op'#231#227'o'
+      Items.Strings = (
+        'APRENDIZ_01'
+        'APRENDIZ_02'
+        'APRENDIZ_03')
     end
     object Button1: TButton
       Left = 72
@@ -67,6 +71,7 @@ object Form3: TForm3
       Height = 25
       Caption = 'Salvar'
       TabOrder = 2
+      OnClick = Button1Click
     end
     object Button2: TButton
       Left = 480
