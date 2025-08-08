@@ -47,7 +47,7 @@ function TFormAlunos.SalvarListBox(anome: string; acodigo:integer):boolean;
   begin
     texto:=acodigo.ToString;
     for i := 0 to ListBox1.Items.Count -1 do begin
-      if ListBox1.Items[i] = texto then begin
+      if ListBox1.Items[i].Contains(texto) then begin
         result:=false;
         ShowMessage('Código já esta em uso, escolha outro!');
         exit;
