@@ -28,7 +28,7 @@ object FormAlunos: TFormAlunos
       Height = 32
       Caption = 'Insira as informa'#231#245'es aqui:'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clBlack
       Font.Height = -24
       Font.Name = 'Segoe UI'
       Font.Style = [fsUnderline]
@@ -86,7 +86,6 @@ object FormAlunos: TFormAlunos
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitTop = 78
     end
     object bListar: TButton
       Left = 420
@@ -101,6 +100,7 @@ object FormAlunos: TFormAlunos
       Font.Style = []
       ParentFont = False
       TabOrder = 2
+      OnClick = bListarClick
     end
     object BEditar: TButton
       Left = 420
@@ -159,12 +159,14 @@ object FormAlunos: TFormAlunos
       TextHint = 'Insira o c'#243'digo'
     end
     object ListBox1: TListBox
-      Left = 240
-      Top = 336
+      Left = 248
+      Top = 323
       Width = 121
       Height = 97
       ItemHeight = 15
       TabOrder = 7
+      Visible = False
+      OnClick = ListBox1Click
     end
   end
 end

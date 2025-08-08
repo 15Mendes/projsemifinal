@@ -110,8 +110,6 @@ object Form4: TForm4
       ParentFont = False
       TabOrder = 5
       TextHint = 'Escolha uma op'#231#227'o'
-      OnChange = cbDisciplinasChange
-      OnClick = ConfirmarClique
       Items.Strings = (
         'DELPHI 12'
         'HTML'
