@@ -21,8 +21,8 @@ object FormAlunos: TFormAlunos
     Color = clDarkolivegreen
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 663
-    ExplicitHeight = 428
+    ExplicitWidth = 694
+    ExplicitHeight = 438
     object Label1: TLabel
       Left = 67
       Top = 139
@@ -88,7 +88,7 @@ object FormAlunos: TFormAlunos
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitWidth = 561
+      ExplicitWidth = 592
     end
     object bListar: TButton
       Left = 476
@@ -118,6 +118,7 @@ object FormAlunos: TFormAlunos
       Font.Style = []
       ParentFont = False
       TabOrder = 3
+      OnClick = BEditarClick
     end
     object BExcluir: TButton
       Left = 476

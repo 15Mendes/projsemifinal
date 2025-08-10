@@ -24,8 +24,6 @@ type
     procedure ListBox1Click(Sender: TObject);
     procedure Edit1KeyPress(Sender: TObject; var Key: Char);
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
-    procedure TListBox1Click(Sender: TObject);
-    procedure BEditarClick(Sender: TObject);
 
 
 
@@ -44,19 +42,8 @@ implementation
 
 
 
-//faz o pré edit
-procedure TFormAlunos.TListBox1Click(Sender: TObject);
-begin
-  var
-  partes: TArray<string>;
-  if ListBox1.ItemIndex >= 0 then begin
-    partes := ListBox1.Items[ListBox1.ItemIndex].Split(['---']);
-    if Length(partes) = 2 then begin
-      Edit1.Text := partes[0];
-      Edit2.Text := partes[1];
-    end;
-  end;
-end;
+
+
 
 
 //adiciona na list box
@@ -69,7 +56,6 @@ function TFormAlunos.SalvarListBox(anome: string; acodigo:integer):boolean;
       if ListBox1.Items[i].Contains(texto) then begin
         result:=false;
         ShowMessage('Código já esta em uso, escolha outro!');
-        Edit2.SetFocus;
         exit;
       end;
     end;
@@ -78,26 +64,6 @@ function TFormAlunos.SalvarListBox(anome: string; acodigo:integer):boolean;
     Result:=true;
   end;
 
-
-//edita a info da lista
-procedure TFormAlunos.BEditarClick(Sender: TObject);
-var
-  posicao: Integer;
-begin
-  posicao := ListBox1.ItemIndex;
-
-  if posicao < 0 then
-  begin
-    ShowMessage('Selecione um item para editar.');
-    Exit;
-  end;
-
-  ListBox1.Items[posicao] := Edit1.Text + Edit2.Text;
-
-  Edit1.Clear;
-  Edit2.Clear;
-  Edit1.SetFocus;
-end;
 
 
 //aparece a list box
@@ -108,7 +74,6 @@ procedure TFormAlunos.bListarClick(Sender: TObject);
 begin
   ListBox1Click(self);
 end;
-
 
 //funções do botão salvar
 procedure TFormAlunos.Button1Click(Sender: TObject);
@@ -124,11 +89,10 @@ procedure TFormAlunos.Button1Click(Sender: TObject);
   Edit1.Clear;
   Edit2.Clear;
   Edit1.SetFocus;
+
   end;
  end;
 
-
-//tecla do enter pt.I
 procedure TFormAlunos.Edit1KeyPress(Sender: TObject; var Key: Char);
 begin
     if Key = #13 then
@@ -137,7 +101,7 @@ begin
     SelectNext(ActiveControl, True, True);
   end;
 end;
-//tecla do enter pt.II
+
 procedure TFormAlunos.Edit2KeyPress(Sender: TObject; var Key: Char);
 begin
     if Key = #13 then
@@ -146,7 +110,6 @@ begin
     SelectNext(ActiveControl, True, True);
   end;
 end;
-
 
 //Aparece a listbox dos alunos
 procedure TFormAlunos.ListBox1Click(Sender: TObject);
