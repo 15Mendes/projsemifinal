@@ -115,5 +115,13 @@ object Form3: TForm3
       ParentFont = False
       TabOrder = 5
     end
+    object ListBox1: TListBox
+      Left = 96
+      Top = 272
+      Width = 321
+      Height = 105
+      ItemHeight = 15
+      TabOrder = 6
+    end
   end
 end

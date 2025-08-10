@@ -115,13 +115,5 @@ object Form4: TForm4
         'HTML'
         'JAVA SCRIPT')
     end
-    object ListBox1: TListBox
-      Left = 82
-      Top = 312
-      Width = 327
-      Height = 97
-      ItemHeight = 15
-      TabOrder = 6
-    end
   end
 end

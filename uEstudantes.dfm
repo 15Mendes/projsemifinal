@@ -21,7 +21,7 @@ object Form2: TForm2
     TabOrder = 0
     object Label1: TLabel
       Left = 56
-      Top = 152
+      Top = 133
       Width = 355
       Height = 32
       Caption = 'Escolha uma das op'#231#245'es a seguir:'
@@ -48,7 +48,7 @@ object Form2: TForm2
     end
     object Button1: TButton
       Left = 56
-      Top = 309
+      Top = 290
       Width = 75
       Height = 25
       Caption = 'Salvar'
@@ -57,7 +57,7 @@ object Form2: TForm2
     end
     object Edit1: TEdit
       Left = 56
-      Top = 192
+      Top = 173
       Width = 321
       Height = 33
       Font.Charset = DEFAULT_CHARSET
@@ -71,7 +71,7 @@ object Form2: TForm2
     end
     object Edit2: TEdit
       Left = 56
-      Top = 231
+      Top = 212
       Width = 321
       Height = 33
       Font.Charset = DEFAULT_CHARSET
@@ -85,7 +85,7 @@ object Form2: TForm2
     end
     object Edit3: TEdit
       Left = 56
-      Top = 270
+      Top = 251
       Width = 321
       Height = 33
       Font.Charset = DEFAULT_CHARSET
@@ -98,8 +98,8 @@ object Form2: TForm2
       TextHint = 'Insira o CPF'
     end
     object Button2: TButton
-      Left = 456
-      Top = 199
+      Left = 440
+      Top = 184
       Width = 179
       Height = 42
       Caption = 'Listar Professores'
@@ -112,8 +112,8 @@ object Form2: TForm2
       TabOrder = 5
     end
     object Button3: TButton
-      Left = 456
-      Top = 295
+      Left = 440
+      Top = 298
       Width = 179
       Height = 39
       Caption = 'Excluir'
@@ -126,8 +126,8 @@ object Form2: TForm2
       TabOrder = 6
     end
     object Button4: TButton
-      Left = 456
-      Top = 247
+      Left = 440
+      Top = 242
       Width = 179
       Height = 42
       Caption = 'Atualizar'
@@ -138,6 +138,14 @@ object Form2: TForm2
       Font.Style = []
       ParentFont = False
       TabOrder = 7
+    end
+    object ListBox1: TListBox
+      Left = 56
+      Top = 336
+      Width = 345
+      Height = 97
+      ItemHeight = 15
+      TabOrder = 8
     end
   end
 end

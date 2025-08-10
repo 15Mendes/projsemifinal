@@ -16,6 +16,7 @@ type
     Button3: TButton;
     Button4: TButton;
     cbDisciplinas: TComboBox;
+    ListBox1: TListBox;
     procedure Button4Click(Sender: TObject);
   private
     { Private declarations }

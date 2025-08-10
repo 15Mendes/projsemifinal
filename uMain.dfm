@@ -2,8 +2,8 @@ object FormAlunos: TFormAlunos
   Left = 0
   Top = 0
   Caption = 'FormAlunos'
-  ClientHeight = 436
-  ClientWidth = 665
+  ClientHeight = 446
+  ClientWidth = 696
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,15 +15,17 @@ object FormAlunos: TFormAlunos
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 665
-    Height = 436
+    Width = 696
+    Height = 446
     Align = alClient
     Color = clDarkolivegreen
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 663
+    ExplicitHeight = 428
     object Label1: TLabel
-      Left = 51
-      Top = 187
+      Left = 67
+      Top = 139
       Width = 281
       Height = 32
       Caption = 'Insira as informa'#231#245'es aqui:'
@@ -37,7 +39,7 @@ object FormAlunos: TFormAlunos
     object Label2: TLabel
       Left = 1
       Top = 1
-      Width = 663
+      Width = 694
       Height = 37
       Align = alTop
       Alignment = taCenter
@@ -51,8 +53,8 @@ object FormAlunos: TFormAlunos
       ExplicitWidth = 261
     end
     object Button1: TButton
-      Left = 51
-      Top = 313
+      Left = 67
+      Top = 265
       Width = 81
       Height = 25
       Caption = 'Salvar'
@@ -69,7 +71,7 @@ object FormAlunos: TFormAlunos
       AlignWithMargins = True
       Left = 51
       Top = 38
-      Width = 563
+      Width = 594
       Height = 73
       Margins.Left = 50
       Margins.Top = 0
@@ -86,9 +88,10 @@ object FormAlunos: TFormAlunos
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
+      ExplicitWidth = 561
     end
     object bListar: TButton
-      Left = 420
+      Left = 476
       Top = 185
       Width = 153
       Height = 44
@@ -103,7 +106,7 @@ object FormAlunos: TFormAlunos
       OnClick = bListarClick
     end
     object BEditar: TButton
-      Left = 420
+      Left = 476
       Top = 247
       Width = 153
       Height = 42
@@ -117,7 +120,7 @@ object FormAlunos: TFormAlunos
       TabOrder = 3
     end
     object BExcluir: TButton
-      Left = 420
+      Left = 476
       Top = 304
       Width = 153
       Height = 41
@@ -131,8 +134,8 @@ object FormAlunos: TFormAlunos
       TabOrder = 4
     end
     object Edit1: TEdit
-      Left = 51
-      Top = 225
+      Left = 67
+      Top = 177
       Width = 273
       Height = 38
       Font.Charset = DEFAULT_CHARSET
@@ -143,10 +146,11 @@ object FormAlunos: TFormAlunos
       ParentFont = False
       TabOrder = 5
       TextHint = 'Insira o nome do Aluno'
+      OnKeyPress = Edit1KeyPress
     end
     object Edit2: TEdit
-      Left = 51
-      Top = 269
+      Left = 67
+      Top = 221
       Width = 273
       Height = 38
       Font.Charset = DEFAULT_CHARSET
@@ -157,12 +161,14 @@ object FormAlunos: TFormAlunos
       ParentFont = False
       TabOrder = 6
       TextHint = 'Insira o c'#243'digo'
+      OnKeyPress = Edit2KeyPress
     end
     object ListBox1: TListBox
-      Left = 248
-      Top = 323
-      Width = 121
+      Left = 80
+      Top = 315
+      Width = 289
       Height = 97
+      Color = clInactiveBorder
       ItemHeight = 15
       TabOrder = 7
       Visible = False

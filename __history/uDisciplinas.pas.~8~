@@ -1,4 +1,4 @@
-unit uProfessores;
+unit uDisciplinas;
 
 interface
 
@@ -7,17 +7,16 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
 
 type
-  TForm3 = class(TForm)
+  TForm4 = class(TForm)
     Panel1: TPanel;
     Panel2: TPanel;
-    ComboBox1: TComboBox;
     Label1: TLabel;
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
-    ListBox1: TListBox;
-    procedure Button1Click(Sender: TObject);
+    cbDisciplinas: TComboBox;
+    procedure Button4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,15 +24,15 @@ type
   end;
 
 var
-  Form3: TForm3;
+  Form4: TForm4;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm3.Button1Click(Sender: TObject);
+procedure TForm4.Button4Click(Sender: TObject);
 begin
-   ShowMessage('Salvo com sucesso!');
+  ShowMessage('Salvo com sucesso!');
 end;
 
 end.

@@ -22,10 +22,9 @@ type
     procedure Button1Click(Sender: TObject);
     procedure bListarClick(Sender: TObject);
     procedure ListBox1Click(Sender: TObject);
-    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
-    procedure Edit2KeyPress(Sender: TObject; var Key: Char);
 
 
+   
 
   private
     { Private declarations }
@@ -36,14 +35,9 @@ type
 var
   FormAlunos: TFormAlunos;
 
-
+  
 implementation
 {$R *.dfm}
-
-
-
-
-
 
 
 //adiciona na list box
@@ -59,19 +53,18 @@ function TFormAlunos.SalvarListBox(anome: string; acodigo:integer):boolean;
         exit;
       end;
     end;
-
+    
     ListBox1.Items.Add(anome +'---'+acodigo.ToString);
     Result:=true;
   end;
-
-
 
 //aparece a list box
 procedure TFormAlunos.bListarClick(Sender: TObject);
  var anome:string;
      acodigo:integer;
-
+ 
 begin
+  SalvarListBox(anome, acodigo);
   ListBox1Click(self);
 end;
 
@@ -79,39 +72,21 @@ end;
 procedure TFormAlunos.Button1Click(Sender: TObject);
  var anome:string;
      acodigo:integer;
+     verificar:integer;
  begin
   anome:= Edit1.Text;
   acodigo:= StrToInt(Edit2.Text);
-  ListBox1.Sorted:=true;
 
-  if SalvarListBox(anome, acodigo) then begin
+    if acodigo = verificar then begin
+      
+    
+    end;
+
   ShowMessage('Salvo com sucesso!');
-  Edit1.Clear;
-  Edit2.Clear;
-  Edit1.SetFocus;
-
-  end;
+  SalvarListBox(anome, acodigo);
  end;
 
-procedure TFormAlunos.Edit1KeyPress(Sender: TObject; var Key: Char);
-begin
-    if Key = #13 then
-  begin
-    Key := #0;
-    SelectNext(ActiveControl, True, True);
-  end;
-end;
-
-procedure TFormAlunos.Edit2KeyPress(Sender: TObject; var Key: Char);
-begin
-    if Key = #13 then
-  begin
-    Key := #0;
-    SelectNext(ActiveControl, True, True);
-  end;
-end;
-
-//Aparece a listbox dos alunos
+//Aparece a listbox dos alunos  
 procedure TFormAlunos.ListBox1Click(Sender: TObject);
 
 begin

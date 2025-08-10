@@ -18,7 +18,9 @@ type
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
+    ListBox1: TListBox;
     procedure Button1Click(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -36,5 +38,6 @@ procedure TForm2.Button1Click(Sender: TObject);
 begin
    ShowMessage('Salvo com sucesso!');
 end;
+
 
 end.

@@ -1,47 +1,44 @@
-object Form1: TForm1
+object FormAlunos: TFormAlunos
   Left = 0
   Top = 0
-  Caption = 'Form1'
-  ClientHeight = 441
-  ClientWidth = 624
+  Caption = 'FormAlunos'
+  ClientHeight = 436
+  ClientWidth = 665
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poDesigned
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 624
-    Height = 441
+    Width = 665
+    Height = 436
     Align = alClient
-    Color = clBurlywood
+    Color = clDarkolivegreen
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -39
-    ExplicitTop = -29
-    ExplicitWidth = 663
-    ExplicitHeight = 470
     object Label1: TLabel
-      Left = 72
-      Top = 179
+      Left = 51
+      Top = 187
       Width = 281
       Height = 32
       Caption = 'Insira as informa'#231#245'es aqui:'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clBlack
       Font.Height = -24
       Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Style = [fsUnderline]
       ParentFont = False
     end
     object Label2: TLabel
       Left = 1
       Top = 1
-      Width = 622
-      Height = 72
+      Width = 663
+      Height = 37
       Align = alTop
       Alignment = taCenter
       Caption = 'SISTEMA ACAD'#202'MICO'
@@ -51,10 +48,11 @@ object Form1: TForm1
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
+      ExplicitWidth = 261
     end
     object Button1: TButton
-      Left = 72
-      Top = 305
+      Left = 51
+      Top = 313
       Width = 81
       Height = 25
       Caption = 'Salvar'
@@ -65,12 +63,13 @@ object Form1: TForm1
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnClick = Button1Click
     end
     object Panel2: TPanel
       AlignWithMargins = True
       Left = 51
-      Top = 73
-      Width = 522
+      Top = 38
+      Width = 563
       Height = 73
       Margins.Left = 50
       Margins.Top = 0
@@ -78,19 +77,19 @@ object Form1: TForm1
       Margins.Bottom = 50
       Align = alTop
       Caption = 'Inclus'#227'o de Alunos'
+      Color = clGray
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -27
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitTop = 38
-      ExplicitWidth = 561
     end
-    object Button2: TButton
-      Left = 440
-      Top = 189
+    object bListar: TButton
+      Left = 420
+      Top = 185
       Width = 153
       Height = 44
       Caption = 'Listar Alunos'
@@ -101,13 +100,14 @@ object Form1: TForm1
       Font.Style = []
       ParentFont = False
       TabOrder = 2
+      OnClick = bListarClick
     end
-    object Button3: TButton
-      Left = 440
+    object BEditar: TButton
+      Left = 420
       Top = 247
       Width = 153
       Height = 42
-      Caption = 'Atualizar'
+      Caption = 'Editar'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
@@ -116,8 +116,8 @@ object Form1: TForm1
       ParentFont = False
       TabOrder = 3
     end
-    object Button4: TButton
-      Left = 440
+    object BExcluir: TButton
+      Left = 420
       Top = 304
       Width = 153
       Height = 41
@@ -131,8 +131,8 @@ object Form1: TForm1
       TabOrder = 4
     end
     object Edit1: TEdit
-      Left = 72
-      Top = 217
+      Left = 51
+      Top = 225
       Width = 273
       Height = 38
       Font.Charset = DEFAULT_CHARSET
@@ -145,8 +145,8 @@ object Form1: TForm1
       TextHint = 'Insira o nome do Aluno'
     end
     object Edit2: TEdit
-      Left = 72
-      Top = 261
+      Left = 51
+      Top = 269
       Width = 273
       Height = 38
       Font.Charset = DEFAULT_CHARSET
@@ -157,6 +157,16 @@ object Form1: TForm1
       ParentFont = False
       TabOrder = 6
       TextHint = 'Insira o c'#243'digo'
+    end
+    object ListBox1: TListBox
+      Left = 248
+      Top = 323
+      Width = 121
+      Height = 97
+      ItemHeight = 15
+      TabOrder = 7
+      Visible = False
+      OnClick = ListBox1Click
     end
   end
 end
