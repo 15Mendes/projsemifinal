@@ -4,7 +4,7 @@ object Form2: TForm2
   Caption = 'Form2'
   ClientHeight = 452
   ClientWidth = 649
-  Color = clBtnFace
+  Color = clGray
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -33,16 +33,18 @@ object Form2: TForm2
       ParentFont = False
     end
     object Panel2: TPanel
-      Left = 40
-      Top = 40
+      Left = 50
+      Top = 38
       Width = 569
       Height = 89
       Caption = 'Inclus'#227'o de Professores'
+      Color = clGray
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -29
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentBackground = False
       ParentFont = False
       TabOrder = 0
     end

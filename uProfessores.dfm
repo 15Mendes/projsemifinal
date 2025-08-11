@@ -4,7 +4,7 @@ object Form3: TForm3
   Caption = 'Form3'
   ClientHeight = 432
   ClientWidth = 705
-  Color = clBtnFace
+  Color = clGray
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -38,11 +38,13 @@ object Form3: TForm3
       Width = 577
       Height = 81
       Caption = 'Turmas Dispon'#237'veis'
+      Color = clGray
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -29
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentBackground = False
       ParentFont = False
       TabOrder = 0
     end

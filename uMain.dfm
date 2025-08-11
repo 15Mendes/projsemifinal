@@ -2,8 +2,8 @@ object FormAlunos: TFormAlunos
   Left = 0
   Top = 0
   Caption = 'FormAlunos'
-  ClientHeight = 446
-  ClientWidth = 696
+  ClientHeight = 472
+  ClientWidth = 709
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,15 +15,17 @@ object FormAlunos: TFormAlunos
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 696
-    Height = 446
+    Width = 709
+    Height = 472
     Align = alClient
     Color = clDarkolivegreen
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 694
-    ExplicitHeight = 438
+    ExplicitTop = -8
+    ExplicitWidth = 424
+    ExplicitHeight = 297
     object Label1: TLabel
+      AlignWithMargins = True
       Left = 67
       Top = 139
       Width = 281
@@ -39,7 +41,7 @@ object FormAlunos: TFormAlunos
     object Label2: TLabel
       Left = 1
       Top = 1
-      Width = 694
+      Width = 707
       Height = 37
       Align = alTop
       Alignment = taCenter
@@ -50,7 +52,9 @@ object FormAlunos: TFormAlunos
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitWidth = 261
+      ExplicitLeft = -42
+      ExplicitTop = -2
+      ExplicitWidth = 671
     end
     object Button1: TButton
       Left = 67
@@ -71,7 +75,7 @@ object FormAlunos: TFormAlunos
       AlignWithMargins = True
       Left = 51
       Top = 38
-      Width = 594
+      Width = 607
       Height = 73
       Margins.Left = 50
       Margins.Top = 0
@@ -82,13 +86,15 @@ object FormAlunos: TFormAlunos
       Color = clGray
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -27
+      Font.Height = -28
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitWidth = 592
+      ExplicitLeft = -13
+      ExplicitTop = 30
+      ExplicitWidth = 571
     end
     object bListar: TButton
       Left = 476
@@ -133,6 +139,7 @@ object FormAlunos: TFormAlunos
       Font.Style = []
       ParentFont = False
       TabOrder = 4
+      OnClick = BExcluirClick
     end
     object Edit1: TEdit
       Left = 67

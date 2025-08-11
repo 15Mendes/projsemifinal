@@ -4,7 +4,7 @@ object Form4: TForm4
   Caption = 'Form4'
   ClientHeight = 460
   ClientWidth = 669
-  Color = clBtnFace
+  Color = clGray
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -38,19 +38,21 @@ object Form4: TForm4
       Width = 545
       Height = 89
       Caption = 'Disciplinas Dispon'#237'veis'
+      Color = clGray
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -29
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentBackground = False
       ParentFont = False
       TabOrder = 0
     end
     object Button1: TButton
       Left = 456
-      Top = 216
+      Top = 224
       Width = 193
-      Height = 50
+      Height = 42
       Caption = 'Listar Disciplinas'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -62,9 +64,9 @@ object Form4: TForm4
     end
     object Button2: TButton
       Left = 456
-      Top = 281
+      Top = 280
       Width = 193
-      Height = 48
+      Height = 41
       Caption = 'Atualizar'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -76,9 +78,9 @@ object Form4: TForm4
     end
     object Button3: TButton
       Left = 456
-      Top = 344
+      Top = 336
       Width = 193
-      Height = 49
+      Height = 41
       Caption = 'Excluir'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText

@@ -3,7 +3,8 @@ unit uMain;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
 
 type
@@ -26,133 +27,151 @@ type
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
     procedure TListBox1Click(Sender: TObject);
     procedure BEditarClick(Sender: TObject);
-
-
+    procedure BExcluirClick(Sender: TObject);
 
   private
     { Private declarations }
   public
-    Function SalvarListBox(anome:string; acodigo:integer):boolean;
+    Function SalvarListBox(anome: string; acodigo: integer): boolean;
   end;
 
 var
   FormAlunos: TFormAlunos;
 
-
 implementation
+
 {$R *.dfm}
 
-
-
-//faz o pré edit
+// faz o pré edit
 procedure TFormAlunos.TListBox1Click(Sender: TObject);
 begin
   var
-  partes: TArray<string>;
-  if ListBox1.ItemIndex >= 0 then begin
+    partes: TArray<string>;
+  if ListBox1.ItemIndex >= 0 then
+  begin
     partes := ListBox1.Items[ListBox1.ItemIndex].Split(['---']);
-    if Length(partes) = 2 then begin
-      Edit1.Text := partes[0];
-      Edit2.Text := partes[1];
-    end;
+    if Length(partes) = 2 then
+      begin
+        Edit1.Text := partes[0];
+        Edit2.Text := partes[1];
+      end;
   end;
 end;
 
-
-//adiciona na list box
-function TFormAlunos.SalvarListBox(anome: string; acodigo:integer):boolean;
- var i:integer;
-     texto:string;
-  begin
-    texto:=acodigo.ToString;
-    for i := 0 to ListBox1.Items.Count -1 do begin
-      if ListBox1.Items[i].Contains(texto) then begin
-        result:=false;
-        ShowMessage('Código já esta em uso, escolha outro!');
-        Edit2.SetFocus;
-        exit;
-      end;
+// adiciona na list box
+function TFormAlunos.SalvarListBox(anome: string; acodigo: integer): boolean;
+var
+  i: integer;
+  texto: string;
+begin
+  texto := acodigo.ToString;
+  for i := 0 to ListBox1.Items.Count - 1 do
+    begin
+      if ListBox1.Items[i].Contains(texto) then
+        begin
+          result := false;
+          ShowMessage('Código já esta em uso, escolha outro!');
+          Edit2.SetFocus;
+          exit;
+        end;
     end;
+  ListBox1.Items.Add(anome + '---' + acodigo.ToString);
+  result := true;
+end;
 
-    ListBox1.Items.Add(anome +'---'+acodigo.ToString);
-    Result:=true;
-  end;
-
-
-//edita a info da lista
+// edita a info da lista
 procedure TFormAlunos.BEditarClick(Sender: TObject);
 var
-  posicao: Integer;
-begin
-  posicao := ListBox1.ItemIndex;
-
-  if posicao < 0 then
+  posicao: integer;
   begin
-    ShowMessage('Selecione um item para editar.');
-    Exit;
+    posicao := ListBox1.ItemIndex;
+
+    if posicao < 0 then begin
+      ShowMessage('Selecione um item para editar.');
+      exit;
+    end;
+
+    ListBox1.Items[posicao] := Edit1.Text +'---'+ Edit2.Text;
+
+    Edit1.Clear;
+    Edit2.Clear;
+    Edit1.SetFocus;
   end;
 
-  ListBox1.Items[posicao] := Edit1.Text + Edit2.Text;
-
-  Edit1.Clear;
-  Edit2.Clear;
-  Edit1.SetFocus;
-end;
-
-
-//aparece a list box
+// aparece a list box
 procedure TFormAlunos.bListarClick(Sender: TObject);
- var anome:string;
-     acodigo:integer;
+var
+  anome: string;
+  acodigo: integer;
 
 begin
   ListBox1Click(self);
 end;
 
-
-//funções do botão salvar
+// funções do botão salvar
 procedure TFormAlunos.Button1Click(Sender: TObject);
- var anome:string;
-     acodigo:integer;
- begin
-  anome:= Edit1.Text;
-  acodigo:= StrToInt(Edit2.Text);
-  ListBox1.Sorted:=true;
+var
+  anome: string;
+  acodigo: integer;
+  begin
+    anome := Edit1.Text;
+    acodigo := StrToInt(Edit2.Text);
+    ListBox1.Sorted := true;
 
-  if SalvarListBox(anome, acodigo) then begin
-  ShowMessage('Salvo com sucesso!');
-  Edit1.Clear;
-  Edit2.Clear;
-  Edit1.SetFocus;
+    if SalvarListBox(anome, acodigo) then
+      begin
+        ShowMessage('Salvo com sucesso!');
+        Edit1.Clear;
+        Edit2.Clear;
+        Edit1.SetFocus;
+      end;
   end;
- end;
 
-
-//tecla do enter pt.I
+// tecla do enter pt.I
 procedure TFormAlunos.Edit1KeyPress(Sender: TObject; var Key: Char);
-begin
-    if Key = #13 then
   begin
-    Key := #0;
-    SelectNext(ActiveControl, True, True);
+    if Key = #13 then
+      begin
+        Key := #0;
+        SelectNext(ActiveControl, true, true);
+      end;
   end;
-end;
-//tecla do enter pt.II
+
+// tecla do enter pt.II
 procedure TFormAlunos.Edit2KeyPress(Sender: TObject; var Key: Char);
-begin
-    if Key = #13 then
   begin
-    Key := #0;
-    SelectNext(ActiveControl, True, True);
+    if Key = #13 then
+      begin
+        Key := #0;
+        SelectNext(ActiveControl, true, true);
+      end;
   end;
-end;
 
 
-//Aparece a listbox dos alunos
+// Aparece a listbox dos alunos
 procedure TFormAlunos.ListBox1Click(Sender: TObject);
+  begin
+    ListBox1.Visible := true;
+  end;
 
-begin
-  ListBox1.Visible:= true;
-end;
 
+//Exclui a informação da ListBox
+procedure TFormAlunos.BExcluirClick(Sender: TObject);
+  var
+  posicao: integer;
+  begin
+    posicao := ListBox1.ItemIndex;
+
+    if posicao < 0 then
+      begin
+        ShowMessage('Selecione um item para excluir.');
+        Exit;
+      end;
+
+    ListBox1.Items.Delete(posicao);
+
+    Edit1.Clear;
+    Edit2.Clear;
+    Edit1.SetFocus;
+  end;
 end.
