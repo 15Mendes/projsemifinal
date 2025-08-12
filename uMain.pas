@@ -4,10 +4,18 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.StdCtrls, Vcl.ExtCtrls, uEstudantes, uData;
 
 type
+  TAluno = class
+  private
+    FCodigo: Integer;
+    FNome: string;
+  public
+    constructor Create(ANome: string; ACodigo: Integer);
+  end;
+
   TFormAlunos = class(TForm)
     Panel1: TPanel;
     Label1: TLabel;
@@ -20,6 +28,8 @@ type
     Edit1: TEdit;
     Edit2: TEdit;
     ListBox1: TListBox;
+    bProximoForm: TButton;
+    procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure bListarClick(Sender: TObject);
     procedure ListBox1Click(Sender: TObject);
@@ -28,11 +38,12 @@ type
     procedure TListBox1Click(Sender: TObject);
     procedure BEditarClick(Sender: TObject);
     procedure BExcluirClick(Sender: TObject);
-
-  private
-    { Private declarations }
+    procedure bProximoFormClick(Sender: TObject);
+  protected
+    nome: String;
+    codigo: Integer;
   public
-    Function SalvarListBox(anome: string; acodigo: integer): boolean;
+    function SalvarListBox(anome: string; acodigo: integer): boolean;
   end;
 
 var
@@ -41,20 +52,28 @@ var
 implementation
 
 {$R *.dfm}
+//_____________________________________________________________________________
+
+
+constructor TAluno.Create(ANome: string; ACodigo: Integer);
+begin
+  FNome := ANome;
+  FCodigo := ACodigo;
+end;
 
 // faz o pré edit
 procedure TFormAlunos.TListBox1Click(Sender: TObject);
+var
+  partes: TArray<string>;
 begin
-  var
-    partes: TArray<string>;
   if ListBox1.ItemIndex >= 0 then
   begin
-    partes := ListBox1.Items[ListBox1.ItemIndex].Split(['---']);
+    partes := ListBox1.Items[ListBox1.ItemIndex].Split(['  |  ']);
     if Length(partes) = 2 then
-      begin
-        Edit1.Text := partes[0];
-        Edit2.Text := partes[1];
-      end;
+    begin
+      Edit1.Text := partes[0];
+      Edit2.Text := partes[1];
+    end;
   end;
 end;
 
@@ -66,112 +85,171 @@ var
 begin
   texto := acodigo.ToString;
   for i := 0 to ListBox1.Items.Count - 1 do
+  begin
+    if ListBox1.Items[i].Contains(texto) then
     begin
-      if ListBox1.Items[i].Contains(texto) then
-        begin
-          result := false;
-          ShowMessage('Código já esta em uso, escolha outro!');
-          Edit2.SetFocus;
-          exit;
-        end;
+      Result := False;
+      ShowMessage('Código já esta em uso, escolha outro!');
+      Edit2.SetFocus;
+      Exit;
     end;
-  ListBox1.Items.Add(anome + '---' + acodigo.ToString);
-  result := true;
+  end;
+  ListBox1.Items.Add(anome + '  |  ' + acodigo.ToString);
+  Result := True;
+
 end;
+
 
 // edita a info da lista
 procedure TFormAlunos.BEditarClick(Sender: TObject);
 var
   posicao: integer;
+  ANome: string;
+begin
+  posicao := ListBox1.ItemIndex;
+
+  if posicao < 0 then
   begin
-    posicao := ListBox1.ItemIndex;
-
-    if posicao < 0 then begin
-      ShowMessage('Selecione um item para editar.');
-      exit;
-    end;
-
-    ListBox1.Items[posicao] := Edit1.Text +'---'+ Edit2.Text;
-
-    Edit1.Clear;
-    Edit2.Clear;
-    Edit1.SetFocus;
+    ShowMessage('Selecione um item para editar.');
+    Exit;
   end;
+
+  ListBox1.Items[posicao] := Edit1.Text + '  |  ' + Edit2.Text;
+
+  Edit1.Clear;
+  Edit2.Clear;
+  Edit1.SetFocus;
+
+//  uData.Dados.Connection.Connected:=True;
+//  uData.Dados.Query.SQL.Text:='INSERT INTO alunos SET nome = '+ANome.QuotedString;
+//  uData.Dados.Query.ParamByName('nome').AsString := ANome;
+//  uData.Dados.Query.ExecSQL;
+end;
+
 
 // aparece a list box
 procedure TFormAlunos.bListarClick(Sender: TObject);
-var
-  anome: string;
-  acodigo: integer;
-
 begin
-  ListBox1Click(self);
+  ListBox1Click(Self);
+    //READ (CRUD)
+  uData.Dados.Connection.Connected:=true;
+  uData.Dados.Query.SQL.Text:='SELECT * FROM alunos';
+  uData.Dados.Query.Open;
+  ListBox1.Items.Clear;
+   while not uData.Dados.Query.Eof do
+     begin
+       ListBox1.Items.Add(uData.Dados.Query.FieldByName('nome').AsString);
+       ListBox1.Items.Add(uData.Dados.Query.FieldByName('ID').AsString);
+       uData.Dados.Query.Next;
+     end;
+
+  uData.Dados.Query.Close;
 end;
+
 
 // funções do botão salvar
 procedure TFormAlunos.Button1Click(Sender: TObject);
 var
   anome: string;
   acodigo: integer;
+begin
+  anome := Edit1.Text;
+  acodigo := StrToInt(Edit2.Text);
+  ListBox1.Sorted := True;
+
+  if SalvarListBox(anome, acodigo) then
   begin
-    anome := Edit1.Text;
-    acodigo := StrToInt(Edit2.Text);
-    ListBox1.Sorted := true;
-
-    if SalvarListBox(anome, acodigo) then
-      begin
-        ShowMessage('Salvo com sucesso!');
-        Edit1.Clear;
-        Edit2.Clear;
-        Edit1.SetFocus;
-      end;
-  end;
-
-// tecla do enter pt.I
-procedure TFormAlunos.Edit1KeyPress(Sender: TObject; var Key: Char);
-  begin
-    if Key = #13 then
-      begin
-        Key := #0;
-        SelectNext(ActiveControl, true, true);
-      end;
-  end;
-
-// tecla do enter pt.II
-procedure TFormAlunos.Edit2KeyPress(Sender: TObject; var Key: Char);
-  begin
-    if Key = #13 then
-      begin
-        Key := #0;
-        SelectNext(ActiveControl, true, true);
-      end;
-  end;
-
-
-// Aparece a listbox dos alunos
-procedure TFormAlunos.ListBox1Click(Sender: TObject);
-  begin
-    ListBox1.Visible := true;
-  end;
-
-
-//Exclui a informação da ListBox
-procedure TFormAlunos.BExcluirClick(Sender: TObject);
-  var
-  posicao: integer;
-  begin
-    posicao := ListBox1.ItemIndex;
-
-    if posicao < 0 then
-      begin
-        ShowMessage('Selecione um item para excluir.');
-        Exit;
-      end;
-
-    ListBox1.Items.Delete(posicao);
-
+    ShowMessage('Salvo com sucesso!');
     Edit1.Clear;
     Edit2.Clear;
     Edit1.SetFocus;
   end;
+  //INSERT
+  uData.Dados.Connection.Connected:=True;
+  uData.Dados.Query.SQL.Text:='INSERT INTO alunos(nome) VALUES (:nome)';
+  uData.Dados.Query.ParamByName('nome').AsString := ANome;
+  uData.Dados.Query.ExecSQL;
+end;
+
+
+// tecla do enter pt.I
+procedure TFormAlunos.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+   if Key = #13 then
+  begin
+    Key := #0;
+    Perform(WM_NEXTDLGCTL, 0, 0);
+  end;
+end;
+
+
+// tecla do enter pt.II
+procedure TFormAlunos.Edit2KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    Key := #0;
+    Perform(WM_NEXTDLGCTL, 0, 0);
+  end;
+end;
+
+
+procedure TFormAlunos.FormCreate(Sender: TObject);
+begin
+  //   Update/Insert/Delete
+  //   uData.Dados.Connection.Connected:=True;
+  //   uData.Dados.Query.SQL.Text:='UPDATE Alunos SET nome = ''Samuel'' WHERE id = 1';
+  //   uData.Dados.Query.ExecSQL;
+
+  //   Select
+//  uData.Dados.Connection.Connected := True;
+//  uData.Dados.Query.SQL.Text := 'SELECT * FROM Alunos WHERE id=1';
+//  uData.Dados.Query.Active := True;
+//  uData.Dados.Query.Open(uData.Dados.Query.SQL.Text);
+//  codigo := uData.Dados.Query.FieldByName('id').AsInteger;
+//  nome := uData.Dados.Query.FieldByName('nome').AsString;
+//  uData.Dados.Query.Close;
+end;
+
+
+// Aparece a listbox dos alunos
+procedure TFormAlunos.ListBox1Click(Sender: TObject);
+begin
+  ListBox1.Visible := True;
+end;
+
+// Exclui a informação da ListBox
+procedure TFormAlunos.BExcluirClick(Sender: TObject);
+var
+  posicao: integer;
+begin
+  posicao := ListBox1.ItemIndex;
+
+  if posicao < 0 then
+  begin
+    ShowMessage('Selecione um item para excluir.');
+    Exit;
+  end;
+
+  ListBox1.Items.Delete(posicao);
+
+  Edit1.Clear;
+  Edit2.Clear;
+  Edit1.SetFocus;
+end;
+
+
+// Vai pro próximo form
+procedure TFormAlunos.bProximoFormClick(Sender: TObject);
+var
+  ProxForm: TForm2;
+begin
+  Hide;
+  ProxForm := TForm2.Create(Self);
+  try
+    ProxForm.ShowModal;
+  finally
+    ProxForm.Free;
+  end;
+end;
 end.

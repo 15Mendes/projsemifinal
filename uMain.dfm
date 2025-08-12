@@ -11,6 +11,7 @@ object FormAlunos: TFormAlunos
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poDesigned
+  OnCreate = FormCreate
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
@@ -21,9 +22,6 @@ object FormAlunos: TFormAlunos
     Color = clDarkolivegreen
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -8
-    ExplicitWidth = 424
-    ExplicitHeight = 297
     object Label1: TLabel
       AlignWithMargins = True
       Left = 67
@@ -52,9 +50,7 @@ object FormAlunos: TFormAlunos
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = -42
-      ExplicitTop = -2
-      ExplicitWidth = 671
+      ExplicitWidth = 261
     end
     object Button1: TButton
       Left = 67
@@ -92,9 +88,6 @@ object FormAlunos: TFormAlunos
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = -13
-      ExplicitTop = 30
-      ExplicitWidth = 571
     end
     object bListar: TButton
       Left = 476
@@ -181,6 +174,15 @@ object FormAlunos: TFormAlunos
       TabOrder = 7
       Visible = False
       OnClick = ListBox1Click
+    end
+    object bProximoForm: TButton
+      Left = 608
+      Top = 432
+      Width = 75
+      Height = 25
+      Caption = '->'
+      TabOrder = 8
+      OnClick = bProximoFormClick
     end
   end
 end
