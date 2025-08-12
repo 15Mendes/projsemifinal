@@ -9,17 +9,17 @@ uses
   uClasseAlunos in 'uClasseAlunos.pas',
   uClasseProfessores in 'uClasseProfessores.pas',
   uClasseDisciplinas in 'uClasseDisciplinas.pas',
-  uData in '..\uData.pas' {Dados: TDataModule};
+  uData in 'uData.pas' {Dados: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TDados, Dados);
   Application.CreateForm(TFormAlunos, FormAlunos);
   Application.CreateForm(TForm2, Form2);
   Application.CreateForm(TForm3, Form3);
   Application.CreateForm(TForm4, Form4);
+  Application.CreateForm(TDados, Dados);
   Application.Run;
 end.

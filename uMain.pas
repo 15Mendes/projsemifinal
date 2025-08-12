@@ -115,15 +115,11 @@ begin
   end;
 
   ListBox1.Items[posicao] := Edit1.Text + '  |  ' + Edit2.Text;
-
-  Edit1.Clear;
-  Edit2.Clear;
   Edit1.SetFocus;
 
-//  uData.Dados.Connection.Connected:=True;
-//  uData.Dados.Query.SQL.Text:='INSERT INTO alunos SET nome = '+ANome.QuotedString;
-//  uData.Dados.Query.ParamByName('nome').AsString := ANome;
-//  uData.Dados.Query.ExecSQL;
+  uData.Dados.Connection.Connected := True;
+  uData.Dados.Query.SQL.Text := 'UPDATE alunos SET nome = ' + QuotedStr(edit1.Text) + ' WHERE id = ' + Edit2.Text;
+  uData.Dados.Query.ExecSQL;
 end;
 
 
@@ -131,7 +127,7 @@ end;
 procedure TFormAlunos.bListarClick(Sender: TObject);
 begin
   ListBox1Click(Self);
-    //READ (CRUD)
+  //READ (Listar)
   uData.Dados.Connection.Connected:=true;
   uData.Dados.Query.SQL.Text:='SELECT * FROM alunos';
   uData.Dados.Query.Open;
@@ -164,7 +160,7 @@ begin
     Edit2.Clear;
     Edit1.SetFocus;
   end;
-  //INSERT
+  //INSERT(Incluir/Salvar)
   uData.Dados.Connection.Connected:=True;
   uData.Dados.Query.SQL.Text:='INSERT INTO alunos(nome) VALUES (:nome)';
   uData.Dados.Query.ParamByName('nome').AsString := ANome;
@@ -218,6 +214,7 @@ begin
   ListBox1.Visible := True;
 end;
 
+
 // Exclui a informação da ListBox
 procedure TFormAlunos.BExcluirClick(Sender: TObject);
 var
@@ -236,6 +233,10 @@ begin
   Edit1.Clear;
   Edit2.Clear;
   Edit1.SetFocus;
+
+  uData.Dados.Connection.Connected:=true;
+  uData.Dados.Query.SQL.Text:= 'DELETE FROM alunos WHERE '
+
 end;
 
 

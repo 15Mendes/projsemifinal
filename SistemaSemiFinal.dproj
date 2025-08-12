@@ -138,7 +138,7 @@
         <DCCReference Include="uClasseAlunos.pas"/>
         <DCCReference Include="uClasseProfessores.pas"/>
         <DCCReference Include="uClasseDisciplinas.pas"/>
-        <DCCReference Include="..\uData.pas">
+        <DCCReference Include="uData.pas">
             <Form>Dados</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
