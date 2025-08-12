@@ -134,8 +134,7 @@ begin
   ListBox1.Items.Clear;
    while not uData.Dados.Query.Eof do
      begin
-       ListBox1.Items.Add(uData.Dados.Query.FieldByName('nome').AsString);
-       ListBox1.Items.Add(uData.Dados.Query.FieldByName('ID').AsString);
+       ListBox1.Items.Add(uData.Dados.Query.FieldByName('ID').AsString+' - '+uData.Dados.Query.FieldByName('nome').AsString);
        uData.Dados.Query.Next;
      end;
 
@@ -219,9 +218,12 @@ end;
 procedure TFormAlunos.BExcluirClick(Sender: TObject);
 var
   posicao: integer;
+  id:Integer;
+  idstr:String;
 begin
   posicao := ListBox1.ItemIndex;
-
+  idStr:=ListBox1.Items[ListBox1.ItemIndex];
+  id:=StrToInt(idStr.Remove(idStr.IndexOf('-')-1));
   if posicao < 0 then
   begin
     ShowMessage('Selecione um item para excluir.');
@@ -230,13 +232,12 @@ begin
 
   ListBox1.Items.Delete(posicao);
 
-  Edit1.Clear;
-  Edit2.Clear;
   Edit1.SetFocus;
 
   uData.Dados.Connection.Connected:=true;
-  uData.Dados.Query.SQL.Text:= 'DELETE FROM alunos WHERE '
-
+  uData.Dados.Query.SQL.Text:= 'DELETE FROM alunos WHERE  id = :id';
+  uData.Dados.Query.ParamByName('id').AsInteger := id;
+  uData.Dados.Query.ExecSQL;
 end;
 
 
