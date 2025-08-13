@@ -125,18 +125,31 @@ end;
 
 // aparece a list box
 procedure TFormAlunos.bListarClick(Sender: TObject);
+var
+  ListaTxt: TStringList;
 begin
   ListBox1Click(Self);
+
   //READ (Listar)
-  uData.Dados.Connection.Connected:=true;
-  uData.Dados.Query.SQL.Text:='SELECT * FROM alunos';
+  uData.Dados.Connection.Connected := True;
+  uData.Dados.Query.SQL.Text := 'SELECT * FROM alunos';
   uData.Dados.Query.Open;
   ListBox1.Items.Clear;
-   while not uData.Dados.Query.Eof do
-     begin
-       ListBox1.Items.Add(uData.Dados.Query.FieldByName('ID').AsString+' - '+uData.Dados.Query.FieldByName('nome').AsString);
-       uData.Dados.Query.Next;
-     end;
+
+  ListaTxt := TStringList.Create;
+  try
+    while not uData.Dados.Query.Eof do begin
+
+      ListBox1.Items.Add(uData.Dados.Query.FieldByName('ID').AsString + ' - ' + uData.Dados.Query.FieldByName('nome').AsString);
+
+      ListaTxt.Add(uData.Dados.Query.FieldByName('ID').AsString + ' - ' + uData.Dados.Query.FieldByName('nome').AsString);
+
+      uData.Dados.Query.Next;
+    end;
+      ListaTxt.SaveToFile('alunos.txt', TEncoding.UTF8);
+  finally
+    ListaTxt.Free;
+  end;
 
   uData.Dados.Query.Close;
 end;

@@ -22,6 +22,8 @@ object FormAlunos: TFormAlunos
     Color = clDarkolivegreen
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 703
+    ExplicitHeight = 455
     object Label1: TLabel
       AlignWithMargins = True
       Left = 67
@@ -88,6 +90,7 @@ object FormAlunos: TFormAlunos
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
+      ExplicitWidth = 601
     end
     object bListar: TButton
       Left = 476
