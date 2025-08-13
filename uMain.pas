@@ -71,7 +71,7 @@ var
   begin
     if ListBox1.ItemIndex >= 0 then
     begin
-      partes := ListBox1.Items[ListBox1.ItemIndex].Split([' - ']);
+      partes := ListBox1.Items[ListBox1.ItemIndex].Split(['-']);
       if Length(partes) = 2 then
       begin
         Edit2.Text := partes[0];
@@ -96,7 +96,7 @@ var
           Exit;
         end;
     end;
-    ListBox1.Items.Add(anome + ' - ' + acodigo.ToString);
+    ListBox1.Items.Add(anome + '-' + acodigo.ToString);
     Result := True;
 
   end;
@@ -114,7 +114,7 @@ var
         Exit;
       end;
 
-      ListBox1.Items[posicao] := Edit2.Text + ' - ' + Edit1.Text;
+      ListBox1.Items[posicao] := Edit2.Text + '-' + Edit1.Text;
       Edit1.SetFocus;
 
       uData.Dados.Connection.Connected := True;
@@ -142,9 +142,9 @@ var
       try
         while not uData.Dados.Query.Eof do begin
 
-          ListBox1.Items.Add(uData.Dados.Query.FieldByName('ID').AsString + ' - ' + uData.Dados.Query.FieldByName('nome').AsString);
+          ListBox1.Items.Add(uData.Dados.Query.FieldByName('ID').AsString + '-' + uData.Dados.Query.FieldByName('nome').AsString);
 
-          ListaTxt.Add(uData.Dados.Query.FieldByName('ID').AsString + ' - ' + uData.Dados.Query.FieldByName('nome').AsString);
+          ListaTxt.Add(uData.Dados.Query.FieldByName('ID').AsString + '-' + uData.Dados.Query.FieldByName('nome').AsString);
 
           uData.Dados.Query.Next;
         end;
@@ -234,16 +234,16 @@ var
   idstr:String;
     begin
       posicao := ListBox1.ItemIndex;
-      idStr:=ListBox1.Items[ListBox1.ItemIndex];
-      id:=StrToInt(idStr.Remove(idStr.IndexOf(' - ')-1));
+
         if posicao < 0 then begin
             ShowMessage('Selecione um item para excluir.');
             Exit;
         end;
 
-      ListBox1.Items.Delete(posicao);
-
       Edit1.SetFocus;
+      ListBox1.Items.Delete(posicao);
+      idStr:=ListBox1.Items[posicao];
+      id:=StrToInt(idStr.Remove(idStr.IndexOf('-')));
 
       uData.Dados.Connection.Connected:=true;
       uData.Dados.Query.SQL.Text:= 'DELETE FROM alunos WHERE  id = :id';
