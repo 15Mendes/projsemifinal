@@ -119,8 +119,8 @@ var
 
       uData.Dados.Connection.Connected := True;
       uData.Dados.Query.SQL.Text:='UPDATE alunos SET nome = :nome WHERE id = :id';
-      uData.Dados.Query.ParamByName('id').AsInteger := StrToInt(Edit2.Text);
       uData.Dados.Query.ParamByName('nome').AsString := Edit1.Text;
+      uData.Dados.Query.ParamByName('id').AsInteger := StrToInt(Edit2.Text);
       uData.Dados.Query.ExecSQL;
     end;
 
